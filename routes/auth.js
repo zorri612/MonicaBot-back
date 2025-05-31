@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { register, login } = require('../controllers/authController');
 
-router.post('/register', register);
-router.post('/login', login);
+// Usa express.json() directamente en la ruta:
+router.post('/login', express.json(), login);
+router.post('/register', express.json(), register);
 
 module.exports = router;
